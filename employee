@@ -1,0 +1,105 @@
+#include<iostream.h>
+#include<conio.h>
+
+
+// Class for Personal Record
+class PersonalRecord {
+protected:
+    char name[50];
+    int age;
+    char address[100];
+
+public:
+    void acceptPersonalRecord() {
+        cout << "Enter Name: ";
+        cin.ignore();
+        cin.getline(name, 50);
+        cout << "Enter Age: ";
+        cin >> age;
+        cout << "Enter Address: ";
+        cin.ignore();
+        cin.getline(address, 100);
+    }
+
+    void displayPersonalRecord() {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+        cout << "Address: " << address << endl;
+    }
+};
+
+// Class for Professional Record
+class ProfessionalRecord {
+protected:
+    char designation[50];
+    float salary;
+    char companyName[50];
+
+public:
+    void acceptProfessionalRecord() {
+        cout << "Enter Designation: ";
+        cin.ignore();
+        cin.getline(designation, 50);
+        cout << "Enter Salary: ";
+        cin >> salary;
+        cout << "Enter Company Name: ";
+        cin.ignore();
+        cin.getline(companyName, 50);
+    }
+
+    void displayProfessionalRecord() {
+        cout << "Designation: " << designation << endl;
+        cout << "Salary: " << salary << endl;
+        cout << "Company Name: " << companyName << endl;
+    }
+};
+
+// Class for Academic Record
+class AcademicRecord {
+protected:
+    char highestQualification[50];
+    float percentage;
+
+public:
+    void acceptAcademicRecord() {
+        cout << "Enter Highest Qualification: ";
+        cin.ignore();
+        cin.getline(highestQualification, 50);
+        cout << "Enter Percentage: ";
+        cin >> percentage;
+    }
+
+    void displayAcademicRecord() {
+        cout << "Highest Qualification: " << highestQualification << endl;
+        cout << "Percentage: " << percentage << "%" << endl;
+    }
+};
+
+// Derived class combining all records
+class BioData : public PersonalRecord, public ProfessionalRecord, public AcademicRecord {
+public:
+    void acceptBioData() {
+        cout << "Enter Personal Details:" << endl;
+        acceptPersonalRecord();
+        cout << "\nEnter Professional Details:" << endl;
+        acceptProfessionalRecord();
+        cout << "\nEnter Academic Details:" << endl;
+        acceptAcademicRecord();
+    }
+
+    void displayBioData() {
+        cout << "\n--- Employee Bio-Data ---" << endl;
+        displayPersonalRecord();
+        displayProfessionalRecord();
+        displayAcademicRecord();
+    }
+};
+
+int main() {
+    clrscr(); // Clear screen (Turbo C++ specific)
+    BioData employee;
+    employee.acceptBioData();
+    employee.displayBioData();
+    getch(); // Wait for a key press (Turbo C++ specific)
+    return 0;
+}
