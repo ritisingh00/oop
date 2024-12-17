@@ -1,5 +1,5 @@
-#include <iostream.h>
-#include <conio.h>
+#include <iostream>
+using namespace std;
 class complex
 {
     int real, img;
@@ -42,7 +42,6 @@ ostream &operator<<(ostream &out, const complex &c4)
 }
 int main()
 {
-    clrscr();
     complex c1, c2, c3, c4;
     cout << "Default Constructor values : " << c1 << endl;
     cout << "Enter Value for 1st complex no. (a + ib) " << endl;
@@ -53,6 +52,5 @@ int main()
     c4 = c1 * c2;
     cout << "Sum of numbers is : " << c3 << endl;
     cout << "Product of numbers is : " << c4 << endl;
-    getche();
     return 0;
 }
