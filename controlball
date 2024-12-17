@@ -1,0 +1,48 @@
+
+
+
+#include<iostream.h>
+#include<conio.h>
+#include<process.h>
+#include<dos.h>
+#include<graphics.h>
+void main()
+{
+int i=250,j=250,x=0,y=-1,ch,gd=DETECT,gm;
+initgraph(&gd,&gm,"C:\\TURBOC3\\BGI");
+while(1)
+{
+circle(i,j,30);
+outtextxy(400,400,"Press ESC to exit");
+if(kbhit())
+{
+ch=getch();
+if(ch==72)         // FOR UPSIDE CONTROL
+{
+x=0; i=i+x;
+y=-1; j=j+y;
+}
+if(ch==80)        // FOR DOWNSIDE CONTROL
+{
+x=0; i=i-x;
+y=1; j=j+y;
+}
+if(ch==75)        // FOR LEFTSIDE CONTROL
+{
+x=-1; i=i+x;
+y=0; j=j+y;
+}
+if(ch==77)        // FOR RIGHTSIDE CONTROL
+{
+x=1; i=i+x;
+y=0; j=j+y;
+}
+if(ch==27)
+{
+closegraph();
+exit(0);
+}
+cleardevice();
+}
+}
+}
